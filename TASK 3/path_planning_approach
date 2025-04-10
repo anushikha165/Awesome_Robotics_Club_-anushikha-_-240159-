@@ -1,0 +1,27 @@
+As mentioned our robot doesn't have to find the shortest path but the least costly path 
+so,from the grid provided in which robot start with S and wants to reach G 
+we can use Dijkstra’s Algorithm to calculate the least-cost path as it's logic works perfectly on our project goal
+so for this each tile as mentioned in task as well Symbol
+S - Start
+G - Goal
+. - Free tile
+# - Wall (impassable)
+~ - Mud(slow)
+^ - Hill (very slow)
+
+working of Dijkstra's Algorithm 
+-- the core of the alogorithm is that it will work on a priority queue that will prioritizes the grid cell which has the minimum cost
+-- as we know from mechanics that the robot is allowed to move in 4 directions and each move is considered if the new cell is inside 
+the grid and its not a wall
+-- we will use a 2D grid  to keep track of where the robot has already gone,
+Once the robot finds the cheapest path to a block, we mark it as done so it doesn’t check that place again.
+so it will help the robot - Avoid checking the same spot again and again, Save time, Not get stuck in a loop
+-- we will use a dictionary or 2D array like(cost[x][y]) to keep the track of minimum cost require, if it finds a cheaper way to reach a 
+tile later, it updates that.(just like we realize after exploring oh, so this shortcut is better)
+-- when it finally reaches the goal, it just follows its steps backward to see how it got there. for this for this we will going to use 
+a parent map that records for every cell (x, y) the cell it came from. Once the goal is reached, we backtrack from the goal to the start
+to retrieve the full optimal path.
+so the final output will be something like that...
+-- It prints the sequence of coordinates representing the path from S to G.
+-- It also calculates and prints the total cost of this path, based on tile movement weights.
+-- The algorithm can show how the robot progresses through the grid.
